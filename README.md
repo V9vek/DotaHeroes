@@ -3,10 +3,13 @@
 ## :scroll: Description
 Fetching Dota 2 heroes from [DOTA 2 OPEN API](https://docs.opendota.com/#tag/hero-stats)
 
-### Insights into the app 🔎
-Application fetching heroes data from DOTA 2 open api and caching them in database
+
+## :mag: Insights into the app
+Application fetching heroes (https://raw.githubusercontent.com/l4wio/dota2-emoji-nickname/master/img/03.gif)
+data from DOTA 2 open api and caching them in database
 
 Showcasing Clean Code and MVVM Architecture, with SOLID principles
+
 
 ## 📸 Screenshots
 |||||
