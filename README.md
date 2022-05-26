@@ -15,7 +15,7 @@ Showcasing Clean Code and MVVM Architecture, with SOLID principles
 ## 📸 Screenshots
 |||||
 |:----------------------------------------:|:-----------------------------------------:|:-----------------------------------------: |:-----------------------------------------: |
-| ![](media/Screen1.png) | ![](media/Screen2.png) | ![](media/Screen6.png)
+| ![](media/Screen1.png) | ![](media/Screen2.png)
 | ![](media/Screen3.png) | ![](media/Screen4.png) | ![](media/Screen5.png)
 
 ## Built With 🛠
