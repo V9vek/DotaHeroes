@@ -21,7 +21,7 @@ class GetHeroes @Inject constructor(
 
         val cachedHeroes = cache.getAllHeores()
 
-        emit(Resource.Success(data = cachedHeroes))
+        emit(Resource.Success(data = cachedHeroes.ifEmpty { emptyList() }))
 
         val isDbEmpty = cachedHeroes.isEmpty()
         val shouldLoadFromCache = !isDbEmpty
