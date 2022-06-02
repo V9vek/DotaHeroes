@@ -73,7 +73,7 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
     private fun initRecyclerView() {
         binding.rvHeroesList.apply {
             adapter = heroListAdapter
-            setHasFixedSize(false)
+            setHasFixedSize(true)
         }
 
         heroListAdapter.setOnItemClickListener { heroId ->
