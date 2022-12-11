@@ -37,6 +37,9 @@ android {
         viewBinding true
         dataBinding true
     }
+    packagingOptions {
+        resources.excludes.add("META-INF/plexus/*")
+    }
 }
 
 dependencies {
