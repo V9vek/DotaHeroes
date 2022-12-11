@@ -1,10 +1,10 @@
 name: DotaHeores CI
+
 on:
   push:
     branches: [master]
   pull_request:
     branches: [master]
-    
   workflow_dispatch:
   
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       
       - name: Run lint
         run: ./gradlew lintDebug
