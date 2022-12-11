@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id "androidx.navigation.safeargs.kotlin"
+    id "org.sonarqube" version "3.4.0.2513"
 }
 
 android {
@@ -87,6 +88,9 @@ dependencies {
     def coil_version = "2.1.0"
     implementation "io.coil-kt:coil:$coil_version"
     implementation "io.coil-kt:coil-gif:$coil_version"
+
+    // Sonar
+    implementation 'org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.1.2184'
 
     // Testing
     testImplementation 'junit:junit:4.13.2'
