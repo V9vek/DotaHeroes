@@ -1,5 +1,8 @@
 package com.vivek.dotaheroes.domain.model
 
+import com.vivek.dotaheroes.R
+import kotlin.math.round
+
 data class Hero(
     val id: Int,
     val localizedName: String,
@@ -49,6 +52,22 @@ data class Hero(
     val eighthPick: Int, // How many times picked eighth round?
     val eighthWin: Int, // How many times picked eighth and won?
 )
+
+fun Hero.calculateProWinRate(): String {
+    val proWR = round(proWins.toDouble() / proPick.toDouble() * 100).toInt()
+    return proWR.toString()
+}
+
+fun Hero.getHeroHealth() = round(baseHealth + baseStr * 20).toInt()
+
+fun Hero.getHeroAttributeImage(): Int {
+    return when (primaryAttribute) {
+        HeroAttribute.Agility -> R.drawable.ic_agility
+        HeroAttribute.Intelligence -> R.drawable.ic_intelligence
+        HeroAttribute.Strength -> R.drawable.ic_strength
+        HeroAttribute.Unknown -> R.drawable.ic_agility
+    }
+}
 
 
 

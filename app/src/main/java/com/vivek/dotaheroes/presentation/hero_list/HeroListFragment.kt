@@ -23,7 +23,8 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
 
     private val viewModel by viewModels<HeroListViewModel>()
 
-    private val heroListAdapter = HeroListAdapter()
+    // private val heroListAdapter = HeroListAdapter()
+    private lateinit var heroListAdapter: HeroListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -66,18 +67,21 @@ class HeroListFragment : Fragment(R.layout.fragment_hero_list) {
                     }
                 }
             }
-
         }
     }
 
     private fun initRecyclerView() {
+        heroListAdapter = HeroListAdapter(
+            onItemClickListener = { heroId ->
+                viewModel.onTriggerEvent(HeroListEvent.NavigateToHeroDetailsScreen(heroId = heroId))
+            }
+        )
+//        heroListAdapter.setOnItemClickListener { heroId ->
+//            viewModel.onTriggerEvent(HeroListEvent.NavigateToHeroDetailsScreen(heroId = heroId))
+//        }
         binding.rvHeroesList.apply {
             adapter = heroListAdapter
             setHasFixedSize(true)
-        }
-
-        heroListAdapter.setOnItemClickListener { heroId ->
-            viewModel.onTriggerEvent(HeroListEvent.NavigateToHeroDetailsScreen(heroId = heroId))
         }
     }
 

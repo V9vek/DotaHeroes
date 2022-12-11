@@ -5,87 +5,72 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.card.MaterialCardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginVertical="4dp"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="0dp"
+        android:background="@drawable/background_rectangle_rv_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/ivHeroImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:scaleType="centerCrop" />
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cvHeroImage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                app:cardCornerRadius="8dp">
+        <TextView
+            android:id="@+id/tvHeroName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivHeroImage"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/ivHeroImage"
+            android:fontFamily="@font/quicksand_bold"
+            android:textSize="20sp"
+            tools:text="Name" />
 
-                <ImageView
-                    android:id="@+id/ivHeroImage"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:background="?attr/colorSecondaryVariant"
-                    android:scaleType="centerCrop"
-                    tools:src="@tools:sample/avatars" />
-            </com.google.android.material.card.MaterialCardView>
+        <ImageView
+            android:id="@+id/ivHeroAttribute"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignBottom="@+id/ivHeroImage"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@+id/ivHeroImage"
+            tools:src="@drawable/ic_agility" />
 
-            <TextView
-                android:id="@+id/tvHeroName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/cvHeroImage"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/cvHeroImage"
-                android:fontFamily="@font/quicksand_bold"
-                android:textSize="20sp"
-                tools:text="Name" />
+        <TextView
+            android:id="@+id/tvHeroAttribute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivHeroImage"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toEndOf="@+id/ivHeroAttribute"
+            android:fontFamily="@font/quicksand_semibold"
+            android:textSize="18sp"
+            tools:text="Attribute" />
 
-            <ImageView
-                android:id="@+id/ivHeroAttribute"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_alignBottom="@+id/cvHeroImage"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/cvHeroImage"
-                tools:src="@drawable/ic_agility" />
-
-            <TextView
-                android:id="@+id/tvHeroAttribute"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/cvHeroImage"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="4dp"
-                android:layout_toEndOf="@+id/ivHeroAttribute"
-                android:fontFamily="@font/quicksand_semibold"
-                android:textSize="18sp"
-                tools:text="Attribute" />
-
-            <TextView
-                android:id="@+id/tvHeroPercentage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/quicksand_semibold"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="18sp"
-                tools:text="50%" />
-        </RelativeLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/tvHeroPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/quicksand_semibold"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="18sp"
+            tools:text="50%" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

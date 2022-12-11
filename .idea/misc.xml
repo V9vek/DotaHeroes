@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/drawable/background_rectangle_filled.xml" value="0.126" />
+        <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/drawable/background_rectangle_image.xml" value="0.126" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/drawable/border_rectangle.xml" value="0.134" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/drawable/hero_iv_error.xml" value="0.134" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/drawable/hero_iv_placeholder.xml" value="0.134" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/fragment_hero_details.xml" value="0.264" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/fragment_hero_list.xml" value="0.264" />
-        <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/hero_list_rv_item.xml" value="0.38408304498269896" />
+        <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/hero_list_rv_item.xml" value="0.4" />
         <entry key="..\:/Android-Projects/DotaHeroes/app/src/main/res/layout/layout_attribute_attacktype.xml" value="0.25416666666666665" />
       </map>
     </option>

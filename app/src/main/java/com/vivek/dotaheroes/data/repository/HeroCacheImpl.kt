@@ -8,6 +8,8 @@ import com.vivek.dotaheroes.domain.model.HeroAttackType
 import com.vivek.dotaheroes.domain.model.HeroAttribute
 import com.vivek.dotaheroes.domain.model.HeroRole
 import com.vivek.dotaheroes.domain.repository.HeroCache
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,30 +20,30 @@ class HeroCacheImpl @Inject constructor(
 
     private val dao = db.dao
 
-    override suspend fun insertHero(hero: Hero) {
+    override suspend fun insertHero(hero: Hero) = withContext(Dispatchers.IO) {
         // TODO: withContext(Dispatchers.IO) { }
         // TODO: provide Dispatchers using Dependency Injection
         dao.insertHero(heroEntity = hero.toHeroEntity())
     }
 
-    override suspend fun insertHeroes(heroes: List<Hero>) {
+    override suspend fun insertHeroes(heroes: List<Hero>) = withContext(Dispatchers.IO) {
         dao.insertHeroes(heroesEntity = heroes.map { it.toHeroEntity() })
     }
 
-    override suspend fun deleteHeroById(id: Int) {
+    override suspend fun deleteHeroById(id: Int) = withContext(Dispatchers.IO) {
         dao.deleteHeroById(id = id)
     }
 
-    override suspend fun deleteAllHeroes() {
+    override suspend fun deleteAllHeroes() = withContext(Dispatchers.IO) {
         dao.deleteAllHeroes()
     }
 
-    override suspend fun getHeroById(id: Int): Hero? {
-        return dao.getHeroById(id = id)?.toHero()
+    override suspend fun getHeroById(id: Int): Hero? = withContext(Dispatchers.IO) {
+        dao.getHeroById(id = id)?.toHero()
     }
 
-    override suspend fun getAllHeores(): List<Hero> {
-        return dao.getAllHeores().map { it.toHero() }
+    override suspend fun getAllHeores(): List<Hero> = withContext(Dispatchers.IO) {
+        dao.getAllHeores().map { it.toHero() }
     }
 
     override suspend fun searchHeroesByName(localizedName: String): List<Hero> {

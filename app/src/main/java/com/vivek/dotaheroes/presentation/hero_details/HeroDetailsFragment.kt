@@ -9,9 +9,13 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.vivek.dotaheroes.R
 import com.vivek.dotaheroes.databinding.FragmentHeroDetailsBinding
+import com.vivek.dotaheroes.domain.model.getHeroAttributeImage
+import com.vivek.dotaheroes.domain.model.getHeroHealth
 import com.vivek.dotaheroes.domain.model.maxAttackDmg
 import com.vivek.dotaheroes.domain.model.minAttackDmg
-import com.vivek.dotaheroes.util.*
+import com.vivek.dotaheroes.util.getHeroAttackImage
+import com.vivek.dotaheroes.util.loadImage
+import com.vivek.dotaheroes.util.loadImageFromDrawables
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,9 +45,7 @@ class HeroDetailsFragment : Fragment(R.layout.fragment_hero_details) {
                         layoutType.tvHeroAttack.text = hero.attackType.uiValue
                         layoutType.tvHeroAttribute.text = hero.primaryAttribute.uiValue
                         layoutType.ivHeroAttribute.loadImageFromDrawables(
-                            id = getHeroAttributeImage(
-                                hero.primaryAttribute
-                            )
+                            id = hero.getHeroAttributeImage()
                         )
                         layoutType.ivHeroAttack.loadImageFromDrawables(
                             id = getHeroAttackImage(hero.attackType)
@@ -52,7 +54,7 @@ class HeroDetailsFragment : Fragment(R.layout.fragment_hero_details) {
                         tvStrengthStats.text = "${hero.baseStr} + ${hero.strGain}"
                         tvAgilityStats.text = "${hero.baseAgi} + ${hero.agiGain}"
                         tvIntelligenceStats.text = "${hero.baseInt} + ${hero.intGain}"
-                        tvHealthStats.text = "${getHeroHealth(hero.baseHealth, hero.baseStr)}"
+                        tvHealthStats.text = "${hero.getHeroHealth()}"
                         tvAttackRangeStats.text = "${hero.attackRange}"
                         tvProjectileStats.text = "${hero.projectileSpeed}"
                         tvMoveSpeedStats.text = "${hero.moveSpeed}"
