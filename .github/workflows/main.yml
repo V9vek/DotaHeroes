@@ -34,7 +34,6 @@ static-code-analysis:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-        ab195afc1b45697280a4c527a728ea66fe0f4bef
 
     - name: SonarCloud Scan
       run: ./gradlew app:sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN }}
