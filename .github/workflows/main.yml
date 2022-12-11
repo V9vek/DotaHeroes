@@ -1,0 +1,25 @@
+name: DotaHeores CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+    
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Setup environment and make build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a one line script
+        run: echo Hello Dota Heroes!
+        
+      - name: Run multi line script
+        run: |
+          echo Hello 1
+          echo Hello 2.
+    
