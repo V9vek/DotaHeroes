@@ -74,6 +74,8 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+      APK_PATH: 'app/build/outputs/apk/debug/app-debug.apk'
+      VERSION: ${{ steps.extract_tag.outputs.VERSION }}
 
     steps:
       - name: Slack Notification
@@ -96,8 +98,11 @@ jobs:
         uses: MeilCli/slack-upload-file@v3
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
-          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
-          file_path: 'dota-heroes.apk'
+          channel_id: 'dota-heroes-builds'
+          file_path: ${{ env.APK_PATH }}
+          file_name: dota-heroes-${{ env.VERSION }}.apk
           file_type: 'apk'
-          title: 'Dota Heroes'
+          title: 'Dota Heroes APK ${{ env.VERSION }}'
+          initial_comment: 'DotaHeroes ${{ env.VERSION }}'
+
 
