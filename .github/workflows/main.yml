@@ -74,7 +74,7 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-      APK_PATH: 'app/build/outputs/apk/debug/app-debug.apk'
+      APK_PATH: 'android/app/build/outputs/apk/debug/app-debug.apk'
       VERSION: '1'
 
     steps:
@@ -95,7 +95,7 @@ jobs:
           message: Build {{ env.GITHUB_REF_NAME }} branch Successfully
 
       - name: Upload APK to Slack
-        uses: MeilCli/slack-upload-file@v3
+        uses: MeilCli/slack-upload-file@v2
         with:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channel_id: 'dota-heroes-builds'
