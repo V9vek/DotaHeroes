@@ -81,13 +81,20 @@ jobs:
         uses: act10ns/slack@v1
         with:
           status: starting
-          message: Starting Build and Deploy
+          message: Starting Build
 
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Sloack Notification
+      - name: Slack Notification
         uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
           message: Build {{ env.GITHUB_REF_NAME }} branch Successfully
+
+      - name: Upload APK to Slack
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_TOKEN }}
+          name: dota-heroes.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
