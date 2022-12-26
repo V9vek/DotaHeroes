@@ -58,14 +58,14 @@ jobs:
         with:
           java-version: 11
 
-#      - name: Build debug APK
-#        run: ./gradlew assembleDebug --stacktrace
-#
-#      - name: Upload APK
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: dota-heroes.apk
-#          path: app/build/outputs/apk/debug/app-debug.apk
+      - name: Build debug APK
+        run: ./gradlew assembleDebug --stacktrace
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: dota-heroes.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
 
   slack:
     needs: [package]
