@@ -67,21 +67,12 @@ jobs:
             name: app-debug.apk
             path: app/build/outputs/apk/debug/app-debug.apk
 
-  apk:
-    needs: [ package ]
-    name: Send APK on Slack
-    runs-on: ubuntu-18.04
-
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-
-      - name: Send APK to Slack
-        uses: adrey/slack-file-upload-action@1.0.5
-        with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          path: ./app/build/outputs/apk/debug/app-debug.apk
-          channel: dota-heroes-builds
-          filename: Dota Heroes.apk
-          initial_comment: ${{ github.event.head_commit.message }}
+        - name: Send APK to Slack
+          uses: adrey/slack-file-upload-action@1.0.5
+          with:
+            token: ${{ secrets.SLACK_TOKEN }}
+            path: ./app/build/outputs/apk/debug/app-debug.apk
+            channel: dota-heroes-builds
+            filename: Dota Heroes.apk
+            initial_comment: ${{ github.event.head_commit.message }}
 
