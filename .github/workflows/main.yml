@@ -96,5 +96,4 @@ jobs:
         uses: adrey/slack-file-upload-action@master
         with:
           token: ${{ secrets.SLACK_TOKEN }}
-          name: dota-heroes.apk
           path: app/build/outputs/apk/debug/app-debug.apk
