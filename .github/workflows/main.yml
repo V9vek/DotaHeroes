@@ -98,4 +98,6 @@ jobs:
           slack_token: ${{ secrets.SLACK_TOKEN }}
           channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
           file_path: app/build/outputs/apk/debug/app-debug.apk
+          file_type: 'apk'
+          title: 'Dota Heroes'
 
