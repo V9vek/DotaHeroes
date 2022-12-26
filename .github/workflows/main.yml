@@ -66,3 +66,17 @@ jobs:
         with:
           name: dota-heroes.apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+  slack:
+    needs: [package]
+    name: Posting to Slack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
