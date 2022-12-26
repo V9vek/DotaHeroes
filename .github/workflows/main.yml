@@ -68,6 +68,7 @@ jobs:
             path: app/build/outputs/apk/debug/app-debug.apk
 
   apk:
+    needs: [ package ]
     name: Send APK on Slack
     runs-on: ubuntu-18.04
 
