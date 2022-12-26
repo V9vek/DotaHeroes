@@ -75,7 +75,7 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
       APK_PATH: 'app/build/outputs/apk/debug/app-debug.apk'
-      VERSION: ${{ steps.extract_tag.outputs.VERSION }}
+      VERSION: '1'
 
     steps:
       - name: Slack Notification
