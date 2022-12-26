@@ -79,8 +79,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # status: ${{ job.status }}
-          # message: Dota Heores Build Successfully
           # For posting a rich message using Block Kit
           payload: |
             {
