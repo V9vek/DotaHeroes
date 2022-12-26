@@ -93,7 +93,8 @@ jobs:
           message: Build {{ env.GITHUB_REF_NAME }} branch Successfully
 
       - name: Upload APK to Slack
-        uses: adrey/slack-file-upload-action@master
+        uses: MeilCli/slack-upload-file@v3
         with:
-          token: ${{ secrets.SLACK_TOKEN }}
-          path: app/build/outputs/apk/debug/app-debug.apk
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
+          file_path: app/build/outputs/apk/debug/app-debug.apk
