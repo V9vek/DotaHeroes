@@ -84,29 +84,8 @@ jobs:
           # For posting a rich message using Block Kit
           payload: |
           {
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "bar"
-                }
-              }
-            ],
-            "attachments": [
-              {
-                "color": "#FF0000",
-                "blocks": [
-                  {
-                    "type": "section",
-                    "text": {
-                      "type": "mrkdwn",
-                      "text": "foo"
-                    }
-                  }
-                ]
-              }
-            ]
+            "key": "value",
+            "foo": "bar"
           }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
