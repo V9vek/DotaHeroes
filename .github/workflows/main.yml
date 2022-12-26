@@ -78,7 +78,7 @@ jobs:
     steps:
       - name: Slack Notification
         id: slack
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: act10ns/slack@v1
         with:
           status: starting
           message: Starting Build and Deploy
@@ -87,7 +87,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Sloack Notification
-        uses: slackapi/slack-github-action@v1.23.0
+        uses: act10ns/slack@v1
         with:
           status: ${{ job.status }}
           message: Build {{ env.GITHUB_REF_NAME }} branch Successfully
