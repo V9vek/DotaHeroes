@@ -71,41 +71,24 @@ jobs:
     needs: [package]
     name: Posting to Slack
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
 
-      - name: Send GitHub Action trigger data to Slack workflow
+    steps:
+      - name: Slack Notification
         id: slack
         uses: slackapi/slack-github-action@v1.23.0
         with:
-          # For posting a rich message using Block Kit
-          payload: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "${{ job.status }}"
-                  }
-                }
-              ],
-              "attachments": [
-                {
-                  "color": "#FF0000",
-                  "blocks": [
-                    {
-                      "type": "section",
-                      "text": {
-                        "type": "mrkdwn",
-                        "text": "foo"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          status: starting
+          message: Starting Build and Deploy
+
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Sloack Notification
+        id: slack
+        uses: slackapi/slack-github-action@v1.23.0
+        with:
+          status: ${{ job.status }}
+          message: Build {{ env.GITHUB_REF_NAME }} branch Successfully
